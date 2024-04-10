@@ -1,0 +1,53 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Student micro
+!**/student-microservice/src/main/**/target/
+!**/student-microservice/HELP.md
+!**/student-microservice/.mvn
+!**/student-microservice/.gitignore
+
+# AuthorAndBook2 micro
+!**/author-and-book-microservice2/src/main/**/target/
+!**/author-and-book-microservice2/src/main/resources/info
+!**/author-and-book-microservice2/HELP.md
+!**/author-and-book-microservice2/.mvn
+!**/author-and-book-microservice2/.gitignore
+
+# AuthorAndBook micro
+!**/author-and-book-microservice/src/main/**/target/
+!**/author-and-book-microservice/src/main/resources/info
+!**/author-and-book-microservice/HELP.md
+!**/author-and-book-microservice/.mvn
+!**/author-and-book-microservice/.gitignore
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/

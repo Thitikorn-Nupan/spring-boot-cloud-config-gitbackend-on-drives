@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/development")
-@RefreshScope
+@RefreshScope // In Spring Boot, the @RefreshScope annotation is used to enable dynamic configuration properties reloading.
 public class RouterDevelopmentController {
 
     @Value("${git.server.message:Config Server is not working.}") // it will go ahead to gitbackend-on-driver.properties because it found message first

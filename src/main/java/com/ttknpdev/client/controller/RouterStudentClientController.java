@@ -22,6 +22,7 @@ public class RouterStudentClientController {
 
     @Value("${git.server.student.url}")
     private String url;
+
     @GetMapping("/url")
     public ResponseEntity<String> getUrl() {
         return ResponseEntity.ok().body(url);

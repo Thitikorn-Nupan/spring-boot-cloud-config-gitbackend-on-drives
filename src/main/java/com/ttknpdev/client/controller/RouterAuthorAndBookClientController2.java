@@ -1,22 +1,21 @@
 package com.ttknpdev.client.controller;
 
 import com.ttknpdev.client.entities.many.Book2;
-import com.ttknpdev.client.entities.one.Author;
 import com.ttknpdev.client.services.BookAndAuthorResponseService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/book")
 public class RouterAuthorAndBookClientController2 {
-    private BookAndAuthorResponseService service;
+
+    private final BookAndAuthorResponseService service;
     @Value("${git.server.author2.url[1]}") // my router of book (Many to one)
     private String url;
+
     public RouterAuthorAndBookClientController2() {
         this.service = new BookAndAuthorResponseService();
     }

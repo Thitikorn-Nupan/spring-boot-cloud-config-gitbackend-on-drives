@@ -1,11 +1,12 @@
 package com.ttknpdev.client.entities.many;
 
 import com.ttknpdev.client.entities.one.Author;
+
 // For response @ManyToOne
 public class Book2 {
     private String bid;
     private String title;
-    private String releaseDate; // mean @Column("release_date")
+    private String releaseDate;
     private Float price;
     private Author author;
 

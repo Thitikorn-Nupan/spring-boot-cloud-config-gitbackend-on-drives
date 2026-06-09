@@ -33,4 +33,5 @@ public class RouterDevelopmentController {
     public ResponseEntity<String> getDomain() {
         return ResponseEntity.ok().body(domain);
     }
+
 }

@@ -1,7 +1,5 @@
 package com.ttknpdev.client.entities.many;
 
-
-
 // must have constructor() {} null arg
 public class Book {
     private String bid;

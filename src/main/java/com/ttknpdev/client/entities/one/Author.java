@@ -1,7 +1,6 @@
 package com.ttknpdev.client.entities.one;
 
 import com.ttknpdev.client.entities.many.Book;
-
 import java.util.List;
 
 // For response @OneToMany
@@ -21,7 +20,6 @@ public class Author {
     }
 
     public Author() {
-
     }
 
     public String getAid() {

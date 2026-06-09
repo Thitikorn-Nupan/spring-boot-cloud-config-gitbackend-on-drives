@@ -3,16 +3,18 @@ package com.ttknpdev.client.dao;
 import com.ttknpdev.client.entities.many.Book;
 import com.ttknpdev.client.repositories.AuthorRepository;
 import com.ttknpdev.client.repositories.BookRepository;
-import com.ttknpdev.client.service.BookService;
+import com.ttknpdev.client.service.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BookDao implements BookService<Book> {
-    private BookRepository bookRepository;
-    private AuthorRepository authorRepository;
+public class CommonDao implements CommonService<Book> {
+
+    private final BookRepository bookRepository;
+    private final AuthorRepository authorRepository;
+
     @Autowired
-    public BookDao(BookRepository bookRepository , AuthorRepository authorRepository) {
+    public CommonDao(BookRepository bookRepository , AuthorRepository authorRepository) {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
     }

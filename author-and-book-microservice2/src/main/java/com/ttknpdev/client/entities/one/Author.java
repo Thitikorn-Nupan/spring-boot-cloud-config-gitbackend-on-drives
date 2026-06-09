@@ -1,21 +1,15 @@
 package com.ttknpdev.client.entities.one;
 
-import com.ttknpdev.client.entities.many.Book;
 import jakarta.persistence.*;
-
-import java.util.List;
 
 @Entity
 @Table(name = "authors")
-// must have constructor() {} null arg
-
 public class Author {
     @Id // Mark is a Pk
     private String aid;
     private String fullname;
     private Short age;
     private Boolean alive;
-
 
     public Author(String aid, String fullname, Short age, Boolean alive) {
         this.aid = aid;
@@ -25,7 +19,6 @@ public class Author {
     }
 
     public Author() {
-
     }
 
     public String getAid() {

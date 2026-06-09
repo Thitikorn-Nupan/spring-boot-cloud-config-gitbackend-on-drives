@@ -2,7 +2,7 @@ package com.ttknpdev.client.dao;
 
 import com.ttknpdev.client.entities.one.Author;
 import com.ttknpdev.client.repository.AuthorRepository;
-import com.ttknpdev.client.service.AuthorService;
+import com.ttknpdev.client.service.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class AuthorImplement implements AuthorService<Author> {
+public class CommonImplement implements CommonService<Author> {
     private AuthorRepository authorRepository;
 
     @Autowired
-    public AuthorImplement(AuthorRepository authorRepository) {
+    public CommonImplement(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
     }
 

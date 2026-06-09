@@ -2,13 +2,10 @@ package com.ttknpdev.client.entities.one;
 
 import com.ttknpdev.client.entities.many.Book;
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
 @Table(name = "authors")
-// must have constructor() {} null arg
-
 public class Author {
     @Id // Mark is a Pk
     private String aid;
@@ -17,7 +14,6 @@ public class Author {
     private Boolean alive;
     @OneToMany(cascade = CascadeType.ALL,targetEntity = Book.class)
     @JoinColumn(name = "aid" , referencedColumnName = "aid")
-    //          **** Book.aid class         **** Author.aid class
     private List<Book> bookList;
 
     public Author(String aid, String fullname, Short age, Boolean alive, List<Book> bookList) {
@@ -29,7 +25,6 @@ public class Author {
     }
 
     public Author() {
-
     }
 
     public String getAid() {

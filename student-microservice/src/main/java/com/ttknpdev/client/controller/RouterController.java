@@ -4,15 +4,14 @@ import com.ttknpdev.client.entity.Student;
 import com.ttknpdev.client.logging.LogBack;
 import com.ttknpdev.client.service.StudentService;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/student")
 public class RouterController {
-    private StudentService service;
 
-    private LogBack logBack;
+    private final StudentService service;
+    private final LogBack logBack;
 
     public RouterController() {
         this.service = new StudentService();

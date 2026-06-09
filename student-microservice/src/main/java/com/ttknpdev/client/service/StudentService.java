@@ -2,13 +2,13 @@ package com.ttknpdev.client.service;
 
 import com.ttknpdev.client.entity.Student;
 import com.ttknpdev.client.logging.LogBack;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentService {
-    private List<Student> students;
-    private LogBack logBack;
+
+    private final List<Student> students;
+    private final LogBack logBack;
 
     public StudentService() {
         students = new ArrayList<>();
@@ -32,6 +32,7 @@ public class StudentService {
                 .filter(element -> element.getCode().equals(codename))
                 .findAny()
                 .orElse(null);
+
         return student;
     }
 
@@ -39,14 +40,14 @@ public class StudentService {
         return students.stream()
                 .filter(element -> element.getCode().equals(codename))
                 .findAny().map(studentExist -> {
-                    System.out.println("found");
+                    logBack.log.debug("found");
                     students.remove(studentExist);
-                    System.out.println("deleted");
+                    logBack.log.debug("deleted");
                     studentExist.setFullname(student.getFullname());
                     studentExist.setAge(student.getAge());
                     studentExist.setLevel(student.getLevel());
                     students.add(studentExist);
-                    System.out.println("updated");
+                    logBack.log.debug("updated");
                     return true;
                 }).orElse(false);
     }
@@ -55,9 +56,9 @@ public class StudentService {
         return students.stream()
                 .filter(element -> element.getCode().equals(codename))
                 .findAny().map(studentExist -> {
-                    System.out.println("found");
+                    logBack.log.debug("found");
                     students.remove(studentExist);
-                    System.out.println("deleted");
+                    logBack.log.debug("deleted");
                     return true;
                 }).orElse(false);
     }

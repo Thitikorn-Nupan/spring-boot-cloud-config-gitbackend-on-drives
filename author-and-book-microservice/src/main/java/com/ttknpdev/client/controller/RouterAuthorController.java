@@ -2,7 +2,7 @@ package com.ttknpdev.client.controller;
 
 import com.ttknpdev.client.entities.one.Author;
 import com.ttknpdev.client.logging.LogBack;
-import com.ttknpdev.client.service.AuthorService;
+import com.ttknpdev.client.service.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,22 +10,23 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/author")
 public class RouterAuthorController {
-    private AuthorService authorService;
-    private LogBack logBack;
+
+    private final CommonService commonService;
+    private final LogBack logBack;
 
     @Autowired
-    public RouterAuthorController(AuthorService authorService) {
-        this.authorService = authorService;
+    public RouterAuthorController(CommonService commonService) {
+        this.commonService = commonService;
         logBack = new LogBack(RouterAuthorController.class);
     }
     @GetMapping(value = "/reads")
     private Iterable<Author> retrieveAllAuthors() {
-        return authorService.reads();
+        return commonService.reads();
     }
 
     @GetMapping(value = "/read")
     private Author retrieveAuthor(@RequestParam String aid) {
-        return (Author) authorService.read(aid);
+        return (Author) commonService.read(aid);
     }
 
     @PostMapping(value = "/create")
@@ -62,16 +63,15 @@ public class RouterAuthorController {
         Hibernate: update books set aid=? where bid=? (aid from Author.aid)
         */
         logBack.log.debug("author stores {}",author); // Author{aid='A002', fullname='Dway Ryder', age=33, alive=false, bookList=[Book{bid='B004', title='Dare to done 1', releaseDate='2015-01-19', price=21.79}, Book{bid='B005', title='Dare to done 2', releaseDate='2015-05-19', price=20.79}]}
-        return authorService.create(author);
+        return commonService.create(author);
     }
 
     @PutMapping(value = "/update")
     private Boolean editAuthor(@RequestParam String aid,@RequestBody Author author) {
-        // logBack.log.debug("author stores {}",author); // Author{aid='A002', fullname='Dway Ryder', age=33, alive=false, bookList=[Book{bid='B004', title='Dare to done 1', releaseDate='2015-01-19', price=21.79}, Book{bid='B005', title='Dare to done 2', releaseDate='2015-05-19', price=20.79}]}
-        return authorService.update(aid,author);
+        return commonService.update(aid,author);
     }
     @DeleteMapping(value = "/delete")
     private Boolean removeAuthor(@RequestParam String aid) {
-        return authorService.delete(aid);
+        return commonService.delete(aid);
     }
 }

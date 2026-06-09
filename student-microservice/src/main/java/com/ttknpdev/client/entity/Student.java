@@ -13,6 +13,9 @@ public class Student {
         this.level = level;
     }
 
+    public Student() {
+    }
+
     public String getCode() {
         return code;
     }
